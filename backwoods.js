@@ -1,13 +1,15 @@
 window.onload = function() {
   setTimeout(function() {
-    const spanElement = document.querySelector('.first');
+    const spanElement = document.querySelector('span[data-set="user-profile"]');
     if (spanElement) {
-      spanElement.innerText = 'backwoods was here';
-      tippy(spanElement, {
-        content: 'This is a tooltip!',
-      });
+      const imgElement = spanElement.querySelector('img');
+      if (imgElement) {
+        imgElement.src = 'x';
+      } else {
+        console.warn('Image element inside the span not found!');
+      }
     } else {
-      console.warn('Element with class "first" not found!');
+      console.warn('Span element with data-set="user-profile" not found!');
     }
   }, 1500);
 };
